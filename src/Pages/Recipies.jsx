@@ -28,26 +28,26 @@ function Recipies() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="flex justify-between container gap-10 mx-auto">
-          <div className="w-full mx-6 lg:mx-0 lg:w-1/2 flex flex-col justify-center">
+        <div className="flex flex-col-reverse lg:flex-row justify-between container gap-10 mx-auto">
+          <div className="w-full px-6 lg:px-0 pb-10 lg:pb-0 mx-auto lg:w-1/2 flex flex-col justify-center">
             <h2 className="font-bold text-5xl lg:text-6xl text-white">
               {name}
             </h2>
             <p className="text-xl text-white mt-6">{bio}</p>
-            <div className="flex gap-6 w-5/6 mt-10">
-              <div className="text-center border border-white rounded-md p-4 w-1/3">
+            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 w-full lg:w-5/6 mt-10">
+              <div className="text-center border border-white rounded-md p-4 w-full lg:w-1/3">
                 <p className="text-white text-xl">Experience</p>
                 <h2 className="text-white font-semibold text-2xl">
                   {experience}+ Years
                 </h2>
               </div>
-              <div className="text-center border border-white rounded-md p-4 w-1/3">
+              <div className="text-center border border-white rounded-md p-4 w-full lg:w-1/3">
                 <p className="text-white text-xl">Total Recipies</p>
                 <h2 className="text-white font-semibold text-2xl">
                   {number_of_recipes}+
                 </h2>
               </div>
-              <div className="text-center border border-white rounded-md p-4 w-1/3">
+              <div className="text-center border border-white rounded-md p-4 w-full lg:w-1/3">
                 <p className="text-white text-xl">Likes</p>
                 <h2 className="text-white font-semibold text-2xl">{likes}+</h2>
               </div>
@@ -62,7 +62,7 @@ function Recipies() {
       <h2 className="text-center mt-10 font-bold text-4xl">
         Recipes by {name}
       </h2>
-      <div className="container mx-auto flex justify-between gap-6 w-3/4 my-10">
+      <div className="container px-6 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 w-full lg:w-3/4 my-10">
         {recipe.map((item) => (
           <RecipeCard key={item.id} data={item} />
         ))}
