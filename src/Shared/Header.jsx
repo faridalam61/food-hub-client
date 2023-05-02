@@ -35,25 +35,30 @@ function Header() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link to="/blog">Favourite racipes</Link>
             </li>
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost normal-case font-bold  text-3xl">
           Food Hub
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <Link to="/">Home</Link>
           </li>
-
           <li>
-            <a>Item 3</a>
+            <Link to="/blog">Blog</Link>
+          </li>
+          <li>
+            <Link to="/favourite">Favourite racipes</Link>
           </li>
         </ul>
       </div>

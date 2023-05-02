@@ -6,11 +6,15 @@ import Recipies from "../Pages/Recipies";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../Pages/Blog";
+import Favourite from "../Pages/Favourite";
+import NotFound from "../Pages/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -34,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Registration />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
+      },
+      {
+        path: "favourite",
+        element: <Favourite />,
       },
     ],
   },
