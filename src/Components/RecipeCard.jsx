@@ -21,13 +21,16 @@ function RecipeCard(data) {
         <p>by {chef_name}</p>
         <p>Cooking method: {cooking_method}</p>
         <p className="text-black underline">Ingredients:</p>
-        <div className="text-sm">
+        <div className="text-xs">
           {ingredients.map((p, idx) => (
             <p>{idx + 1 + ". " + p}</p>
           ))}
         </div>
         <p>{ratings}</p>
       </div>
+      <button className="mx-auto bg-orange-400 text-white rounded-md cursor-pointer px-6 py-2 mt-0 w-full">
+        Add to Favourite
+      </button>
     </div>
   );
 }
