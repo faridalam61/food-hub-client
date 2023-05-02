@@ -1,7 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Header() {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleLogOUt = () => {
+    logOut()
+      .then(() => navigate("/login"))
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -50,7 +58,13 @@ function Header() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        {user ? (
+          <button onClick={handleLogOUt}>logout</button>
+        ) : (
+          <Link to="/login" className="btn">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
