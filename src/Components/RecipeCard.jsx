@@ -1,5 +1,4 @@
 import React from "react";
-import recipeImg from "../../public/images/recipe.jpg";
 
 function RecipeCard(data) {
   const {
@@ -14,7 +13,7 @@ function RecipeCard(data) {
   console.log(ingredients);
   return (
     <div className="border rounded-md">
-      <img src={recipeImg} alt="" className="rounded-md" />
+      <img src={image} alt="" className="rounded-md" />
 
       <div className="p-4">
         <h2 className="text-xl text-black">{recipe_name}</h2>

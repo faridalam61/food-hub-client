@@ -3,17 +3,25 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Registration() {
-  const { registerAccount } = useContext(AuthContext);
+  const { registerAccount, setProfile } = useContext(AuthContext);
   const handleRegistration = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const profilePhot = form.profile_photo.value;
+    const profilePhoto = form.profile_photo.value;
+    const data = {
+      displayName: name,
+      photoURL: profilePhoto,
+    };
 
     registerAccount(email, password)
-      .then((res) => console.log(res))
+      .then(() => {
+        setProfile(data)
+          .then(() => {})
+          .catch((error) => console.log(error));
+      })
       .catch((error) => console.log(error));
   };
 

@@ -64,7 +64,7 @@ function Header() {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button onClick={handleLogOUt}>logout</button>
+          (user?.displayName, (<button onClick={handleLogOUt}>logout</button>))
         ) : (
           <Link to="/login" className="btn">
             Login
