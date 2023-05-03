@@ -20,7 +20,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/chefs"),
+        loader: () =>
+          fetch("https://food-hub-server-faridalam61.vercel.app/chefs"),
       },
       {
         path: "recipies/:id",
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chef/${params.id}`),
+          fetch(
+            `https://food-hub-server-faridalam61.vercel.app/chef/${params.id}`
+          ),
       },
       {
         path: "login",

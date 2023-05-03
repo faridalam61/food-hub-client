@@ -11,7 +11,7 @@ function Recipies() {
   const { id, photo, name, experience, number_of_recipes, likes, bio } = chef;
 
   useEffect(() => {
-    fetch("http://localhost:5000/recipies")
+    fetch("https://food-hub-server-faridalam61.vercel.app/recipies")
       .then((res) => res.json())
       .then((data) => {
         const f_data = data.recipes.filter((d) => name == d.chef_name);

@@ -5,6 +5,8 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 function Registration() {
   const { registerAccount, setProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [error, setError] = useState();
+
   const handleRegistration = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,23 +23,22 @@ function Registration() {
       .then((res) => {
         setProfile(data)
           .then(() => navigate("/"))
-          .catch((error) => console.log(error));
-        console.log(res.user);
+          .catch((error) => setError(error.message));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error.message));
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <div className="card p-6 card-compact w-1/3 bg-base-100 shadow-xl">
+    <div className="h-min my-16 flex justify-center items-center">
+      <div className="card p-6 card-compact w-full lg:w-1/3 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title text-3xl">Registration</h2>
+          <p className="text-red-400">{error}</p>
           <form onSubmit={handleRegistration}>
             <input
               type="text"
               placeholder="Name"
               name="name"
-              required
               className="input input-bordered input-primary w-full my-2"
             />
             <input
@@ -52,6 +53,7 @@ function Registration() {
               placeholder="Password"
               name="password"
               className="input input-bordered input-primary w-full my-2"
+              required
             />
             <input
               type="text"
@@ -59,6 +61,7 @@ function Registration() {
               name="profile_photo"
               className="input input-bordered input-primary w-full my-2"
             />
+
             <div className="card-actions justify-center">
               <input
                 type="submit"

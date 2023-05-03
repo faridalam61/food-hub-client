@@ -13,7 +13,7 @@ function Home() {
 
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/recipies")
+    fetch("https://food-hub-server-faridalam61.vercel.app/recipies")
       .then((res) => res.json())
       .then((data) => {
         const topRated = data.recipes
