@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Registration() {
   const { registerAccount, setProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegistration = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,10 +18,11 @@ function Registration() {
     };
 
     registerAccount(email, password)
-      .then(() => {
+      .then((res) => {
         setProfile(data)
-          .then(() => {})
+          .then(() => navigate("/"))
           .catch((error) => console.log(error));
+        console.log(res.user);
       })
       .catch((error) => console.log(error));
   };

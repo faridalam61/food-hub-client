@@ -4,6 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Header() {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const navigate = useNavigate();
   const handleLogOUt = () => {
     logOut()
@@ -64,7 +65,14 @@ function Header() {
       </div>
       <div className="navbar-end">
         {user ? (
-          (user?.displayName, (<button onClick={handleLogOUt}>logout</button>))
+          <div className="flex items-center gap-4">
+            <img
+              src={user.photoURL}
+              title={user.displayName}
+              className="rounded-full w-10"
+            />
+            <button onClick={handleLogOUt}>Logout</button>
+          </div>
         ) : (
           <Link to="/login" className="btn">
             Login
