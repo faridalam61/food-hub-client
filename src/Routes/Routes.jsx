@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import Blog from "../Pages/Blog";
 import Favourite from "../Pages/Favourite";
 import NotFound from "../Pages/NotFound";
+import About from "../Pages/About";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "favourite",
         element: <Favourite />,
+      },
+      {
+        path: "/about-us",
+        element: <About />,
       },
     ],
   },

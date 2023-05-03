@@ -59,6 +59,9 @@ function Header() {
             <Link to="/blog">Blog</Link>
           </li>
           <li>
+            <Link to="/about-us">About Us</Link>
+          </li>
+          <li>
             <Link to="/favourite">Favourite racipes</Link>
           </li>
         </ul>
