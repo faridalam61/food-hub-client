@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
 
 function RecipeCard(data) {
   const {
@@ -14,7 +15,9 @@ function RecipeCard(data) {
   console.log(ingredients);
   return (
     <div className="border rounded-md">
-      <img src={image} alt="" className="rounded-md" />
+      <LazyLoad>
+        <img src={image} alt="" className="rounded-md" />
+      </LazyLoad>
 
       <div className="p-4">
         <h2 className="text-xl text-black">{recipe_name}</h2>

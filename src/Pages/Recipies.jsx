@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import bgImg from "../../public/images/chef-bg.jpg";
 import RecipeCard from "../Components/RecipeCard";
+import LazyLoad from "react-lazy-load";
 
 function Recipies() {
   const chef = useLoaderData();
@@ -54,7 +55,9 @@ function Recipies() {
             </div>
           </div>
           <div>
-            <img src={photo} />
+            <LazyLoad>
+              <img src={photo} />
+            </LazyLoad>
           </div>
         </div>
       </div>

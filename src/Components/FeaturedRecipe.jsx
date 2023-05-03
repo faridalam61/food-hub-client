@@ -1,12 +1,15 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
 
 function FeaturedRecipe(recipe) {
   const { id, recipe_name, image, chef_name, ratings } = recipe.recipe;
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
-        <img src={image} alt="Shoes" />
+        <LazyLoad>
+          <img src={image} alt="Shoes" />
+        </LazyLoad>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{recipe_name}</h2>
