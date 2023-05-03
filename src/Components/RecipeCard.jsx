@@ -1,4 +1,5 @@
 import React from "react";
+import { FaStar } from "react-icons/fa";
 
 function RecipeCard(data) {
   const {
@@ -25,7 +26,10 @@ function RecipeCard(data) {
             <p>{idx + 1 + ". " + p}</p>
           ))}
         </div>
-        <p>{ratings}</p>
+        <div className="flex items-center gap-2 text-bold">
+          <FaStar className="text-orange-400" />
+          {ratings}
+        </div>
       </div>
       <button className="mx-auto bg-orange-400 text-white rounded-md cursor-pointer px-6 py-2 mt-0 w-full">
         Add to Favourite
