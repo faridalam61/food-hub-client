@@ -10,6 +10,7 @@ import Blog from "../Pages/Blog";
 import Favourite from "../Pages/Favourite";
 import NotFound from "../Pages/NotFound";
 import About from "../Pages/About";
+import Profile from "../Pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -52,8 +53,12 @@ const router = createBrowserRouter([
         element: <Favourite />,
       },
       {
-        path: "/about-us",
+        path: "about-us",
         element: <About />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

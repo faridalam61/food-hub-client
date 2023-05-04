@@ -68,7 +68,9 @@ function Header() {
         {user ? (
           <div className="flex items-center gap-4">
             <div className="tooltip">
-              <img src={user.photoURL} className="rounded-full w-10" />
+              <Link to="/profile">
+                <img src={user.photoURL} className="rounded-full w-10" />
+              </Link>
               <span className="tooltip-text">{user.displayName}</span>
             </div>
             <button onClick={handleLogOUt}>Logout</button>
