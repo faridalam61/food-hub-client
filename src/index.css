@@ -14,3 +14,18 @@
 }
 
 .active{background-color: #4406CB !important; color: #fff;}
+
+.tooltip span{display: none;}
+.tooltip:hover span{
+    display: block;
+}
+
+.tooltip-text{
+    background: #4406CB;
+    color: #fff;
+    padding: 4px;
+    border-radius: 6px;
+    position: absolute; 
+    width: 100px;
+    top: 45px;
+}

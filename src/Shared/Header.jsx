@@ -13,7 +13,7 @@ function Header() {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 sticky top-0 z-[999]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -67,15 +67,14 @@ function Header() {
       <div className="navbar-end">
         {user ? (
           <div className="flex items-center gap-4">
-            <img
-              src={user.photoURL}
-              title={user.displayName}
-              className="rounded-full w-10"
-            />
+            <div className="tooltip">
+              <img src={user.photoURL} className="rounded-full w-10" />
+              <span className="tooltip-text">{user.displayName}</span>
+            </div>
             <button onClick={handleLogOUt}>Logout</button>
           </div>
         ) : (
-          <Link to="/login" className="btn">
+          <Link to="/login" className="btn btn-primary">
             Login
           </Link>
         )}

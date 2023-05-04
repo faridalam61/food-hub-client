@@ -1,12 +1,21 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Header from "../Shared/Header";
 import Footer from "../Shared/Footer";
 
 function Main() {
+  const navigation = useNavigation();
   return (
     <div>
       <Header />
+      <div>
+        {navigation.state === "loading" && (
+          <div className="text-center mt-10">
+            <p className="mb-4">Loading..</p>
+            <progress className="progress w-56"></progress>
+          </div>
+        )}
+      </div>
       <Outlet />
       <Footer />
     </div>
