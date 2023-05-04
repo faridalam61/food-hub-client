@@ -15,7 +15,7 @@ function PrivateRoute({ children }) {
   if (user) {
     return children;
   } else {
-    return <Navigate state={{ from: location }} to="./login"></Navigate>;
+    return <Navigate state={{ from: location }} to="../login"></Navigate>;
   }
 }
 

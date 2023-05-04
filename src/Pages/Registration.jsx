@@ -5,7 +5,8 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 function Registration() {
   const { registerAccount, setProfile } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
+  const [succes, setSucces] = useState("");
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -22,10 +23,21 @@ function Registration() {
     registerAccount(email, password)
       .then((res) => {
         setProfile(data)
-          .then(() => navigate("/"))
+          .then(() => {
+            setSucces("Account created. Redirecting..");
+            setError("");
+            navigate("/");
+          })
           .catch((error) => setError(error.message));
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        const msg = error.message.includes("weak-password");
+        if (msg) {
+          setError("Password should be at least 6 charecters");
+        } else {
+          setError(error);
+        }
+      });
   };
 
   return (
@@ -33,7 +45,7 @@ function Registration() {
       <div className="card p-6 card-compact w-full lg:w-1/3 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title text-3xl">Registration</h2>
-          <p className="text-red-400">{error}</p>
+
           <form onSubmit={handleRegistration}>
             <input
               type="text"
@@ -61,7 +73,8 @@ function Registration() {
               name="profile_photo"
               className="input input-bordered input-primary w-full my-2"
             />
-
+            <p className="text-red-400 font-bold">{error}</p>
+            <p className="text-green-400 font-bold">{succes}</p>
             <div className="card-actions justify-center">
               <input
                 type="submit"

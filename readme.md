@@ -1,4 +1,4 @@
-## Live site https://
+## Live site https://food-hub-6c467.web.app/
 
 This is a recipe website project. The project was created for learning purpose. We have used several tools to build this project like, Express, React, Vite, Tailwind, Daisyui
 

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -6,6 +6,8 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 function Login() {
   const { loginUser, google, github } = useContext(AuthContext);
   const location = useLocation();
+  const [error, setError] = useState("");
+  const [sucess, setSucess] = useState("");
   const from = location?.state?.from?.pathname || "/";
 
   const navigate = useNavigate();
@@ -15,8 +17,19 @@ function Login() {
     const email = form.email.value;
     const password = form.password.value;
     loginUser(email, password)
-      .then(() => navigate(from))
-      .catch((error) => console.log(error));
+      .then(() => {
+        setSucess("Login successful!! Redirecting..");
+        setError("");
+        navigate(from);
+      })
+      .catch((error) => {
+        const msg = error.message.includes("wrong-password");
+        if (msg) {
+          setError("Email and password not matched");
+        } else {
+          console.log(msg);
+        }
+      });
   };
   const handleGoogleLogin = () => {
     google()
@@ -48,7 +61,8 @@ function Login() {
               name="password"
               className="input input-bordered input-primary w-full my-2"
             />
-
+            <p className="text-red-400 font-bold">{error}</p>
+            <p className="text-green-400 font-bold">{sucess}</p>
             <div className="card-actions justify-center">
               <input
                 type="submit"
