@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import ActiveLink from "../Routes/ActiveLink";
 
 function Header() {
   const { user, logOut } = useContext(AuthContext);
@@ -36,16 +37,13 @@ function Header() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Home</Link>
+              <ActiveLink to="/">Home</ActiveLink>
             </li>
             <li>
-              <Link to="/blog">Blog</Link>
+              <ActiveLink to="/blog">Blog</ActiveLink>
             </li>
             <li>
-              <Link to="/about-us">About Us</Link>
-            </li>
-            <li>
-              <Link to="/blog">Favourite racipes</Link>
+              <ActiveLink to="/about-us">About Us</ActiveLink>
             </li>
           </ul>
         </div>
@@ -56,16 +54,13 @@ function Header() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <ActiveLink to="/">Home</ActiveLink>
           </li>
           <li>
-            <Link to="/blog">Blog</Link>
+            <ActiveLink to="/blog">Blog</ActiveLink>
           </li>
           <li>
-            <Link to="/about-us">About Us</Link>
-          </li>
-          <li>
-            <Link to="/favourite">Favourite racipes</Link>
+            <ActiveLink to="/about-us">About Us</ActiveLink>
           </li>
         </ul>
       </div>

@@ -12,3 +12,5 @@
 .is-visible {
     opacity: 1;
 }
+
+.active{background-color: #4406CB !important; color: #fff;}

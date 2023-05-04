@@ -35,7 +35,7 @@ function Registration() {
         if (msg) {
           setError("Password should be at least 6 charecters");
         } else {
-          setError(error);
+          setError(error.message);
         }
       });
   };

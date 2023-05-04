@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import LazyLoad from "react-lazy-load";
 import { ToastContainer, toast } from "react-toastify";
 
-function RecipeCard(data) {
+function RecipeCard({ data, showToast }) {
   const {
     id,
     recipe_name,
@@ -12,19 +12,9 @@ function RecipeCard(data) {
     image,
     cooking_method,
     chef_name,
-  } = data.data;
-  const handleFavourite = () => {
-    toast("🦄 Wow so easy!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
+  } = data;
+
+  const handleFavourite = showToast;
   return (
     <div>
       <div className="border rounded-md">
@@ -48,24 +38,12 @@ function RecipeCard(data) {
           </div>
         </div>
         <button
-          className="mx-auto bg-orange-400 text-white rounded-md cursor-pointer px-6 py-2 mt-0 w-full"
+          className="btn btn-primary w-full mt-3"
           onClick={handleFavourite}
         >
           Add to Favourite
         </button>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </div>
   );
 }

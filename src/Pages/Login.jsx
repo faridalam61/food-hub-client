@@ -27,7 +27,7 @@ function Login() {
         if (msg) {
           setError("Email and password not matched");
         } else {
-          console.log(msg);
+          setError(error.message);
         }
       });
   };

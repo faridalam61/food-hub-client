@@ -3,12 +3,20 @@ import { useLoaderData, useParams } from "react-router-dom";
 import bgImg from "../../public/images/chef-bg.jpg";
 import RecipeCard from "../Components/RecipeCard";
 import LazyLoad from "react-lazy-load";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Recipies() {
   const chef = useLoaderData();
   const [recipe, setRecipe] = useState([]);
 
   const { id, photo, name, experience, number_of_recipes, likes, bio } = chef;
+  const notify = () => toast("Added to favourite list");
+
+  const showToast = (e) => {
+    notify();
+    e.target.disabled = true;
+  };
 
   useEffect(() => {
     fetch("https://food-hub-server-faridalam61.vercel.app/recipies")
@@ -67,9 +75,21 @@ function Recipies() {
       </h2>
       <div className="container px-6 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 w-full lg:w-3/4 my-10">
         {recipe.map((item) => (
-          <RecipeCard key={item.id} data={item} />
+          <RecipeCard key={item.id} data={item} showToast={showToast} />
         ))}
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
