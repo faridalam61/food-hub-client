@@ -34,13 +34,13 @@ function Login() {
   const handleGoogleLogin = () => {
     google()
       .then(() => navigate(from))
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error.message));
   };
 
   const handleGithubLogin = () => {
     github()
       .then(() => navigate(from))
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error.message));
   };
   return (
     <div className="h-min my-16 p-4 flex justify-center items-center">

@@ -2,7 +2,6 @@ import React from "react";
 import { Outlet, ScrollRestoration, useNavigation } from "react-router-dom";
 import Header from "../Shared/Header";
 import Footer from "../Shared/Footer";
-import ScrolltoTop from "../Components/ScrolltoTop";
 
 function Main() {
   const navigation = useNavigation();
