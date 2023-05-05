@@ -38,7 +38,7 @@ function RecipeCard({ data, showToast }) {
         </div>
         <button
           className="btn btn-primary w-full mt-3"
-          onClick={() => handleFavourite}
+          onClick={handleFavourite}
         >
           Add to Favourite
         </button>
