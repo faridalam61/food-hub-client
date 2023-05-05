@@ -1,7 +1,8 @@
 import React from "react";
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet, ScrollRestoration, useNavigation } from "react-router-dom";
 import Header from "../Shared/Header";
 import Footer from "../Shared/Footer";
+import ScrolltoTop from "../Components/ScrolltoTop";
 
 function Main() {
   const navigation = useNavigation();
@@ -16,7 +17,9 @@ function Main() {
           </div>
         )}
       </div>
+
       <Outlet />
+
       <Footer />
     </div>
   );

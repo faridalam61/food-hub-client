@@ -20,7 +20,6 @@ function Profile() {
           location.reload();
         })
         .catch((error) => setError(error.message));
-      console.log(data);
     } else {
       setError("Change at least one field");
     }
@@ -52,6 +51,14 @@ function Profile() {
             type="text"
             name="image"
             placeholder={user.photoURL}
+            className="mb-4 mt-2 input input-bordered input-primary w-full max-w-xs"
+          />
+          <label>Email</label>
+          <input
+            type="text"
+            name="image"
+            placeholder={user.email}
+            disabled
             className="mb-4 mt-2 input input-bordered input-primary w-full max-w-xs"
           />
           <h2 className="text-red-400 text-lg">{error}</h2>

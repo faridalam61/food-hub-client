@@ -1,7 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import LazyLoad from "react-lazy-load";
-import { ToastContainer, toast } from "react-toastify";
 
 function RecipeCard({ data, showToast }) {
   const {
@@ -29,7 +28,7 @@ function RecipeCard({ data, showToast }) {
           <p className="text-black underline">Ingredients:</p>
           <div className="text-xs">
             {ingredients.map((p, idx) => (
-              <p>{idx + 1 + ". " + p}</p>
+              <p key={idx}>{idx + 1 + ". " + p}</p>
             ))}
           </div>
           <div className="flex items-center gap-2 text-bold">
@@ -39,7 +38,7 @@ function RecipeCard({ data, showToast }) {
         </div>
         <button
           className="btn btn-primary w-full mt-3"
-          onClick={handleFavourite}
+          onClick={() => handleFavourite}
         >
           Add to Favourite
         </button>

@@ -11,3 +11,5 @@ This is a recipe website project. The project was created for learning purpose. 
 - Used context api
 - Used react router dom to build routes
 - Used Tailwind and DaisyUi to style the UI
+
+https://food-hub-server-faridalam61.vercel.app

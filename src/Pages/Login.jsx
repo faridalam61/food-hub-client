@@ -60,6 +60,7 @@ function Login() {
               placeholder="Password"
               name="password"
               className="input input-bordered input-primary w-full my-2"
+              required
             />
             <p className="text-red-400 font-bold">{error}</p>
             <p className="text-green-400 font-bold">{sucess}</p>
