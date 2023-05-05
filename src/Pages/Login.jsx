@@ -62,6 +62,7 @@ function Login() {
               className="input input-bordered input-primary w-full my-2"
               required
             />
+            <Link to="/reset-password">Forgot password?</Link>
             <p className="text-red-400 font-bold">{error}</p>
             <p className="text-green-400 font-bold">{sucess}</p>
             <div className="card-actions justify-center">

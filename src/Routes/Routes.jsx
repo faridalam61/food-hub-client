@@ -11,6 +11,7 @@ import Favourite from "../Pages/Favourite";
 import NotFound from "../Pages/NotFound";
 import About from "../Pages/About";
 import Profile from "../Pages/Profile";
+import Forgot from "../Pages/Forgot";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "reset-password",
+        element: <Forgot />,
       },
     ],
   },
